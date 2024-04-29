@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman Game</title>
+    <link rel="stylesheet" href="hangman.css">
+    <!-- <link rel="stylesheet" href="../style.css"> -->
+</head>
+<body>
+    <h1>Hangman Game</h1>
+    <div id="difficulty-buttons">
+        <button class="difficulty" data-difficulty="easy">Easy</button>
+        <button class="difficulty" data-difficulty="medium">Medium</button>
+        <button class="difficulty" data-difficulty="hard">Hard</button>
+    </div>
+    <img id="hangmanImage" src="./images/0.jpg" alt="Hangman">
+    <p id="wordSpotlight">_ _ _ _ _ _ _</p>
+    <div id="keyboard"></div>
+    <p id="gameStatus"></p> <!-- Placeholder for game status messages -->
+    <p>Misses: <span id="misses"></span></p>
+    <button id="restartButton" style="display: none;">Restart Game</button>
+    <script src="hangman.js"></script>
+</body>
+</html>

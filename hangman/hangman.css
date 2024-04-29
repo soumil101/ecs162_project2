@@ -1,0 +1,89 @@
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    padding-top: 20px;
+    background-color: #f0f0f0;
+}
+
+h1 {
+    color: #333;
+}
+
+#difficulty-buttons {
+    margin-bottom: 20px;
+}
+
+.difficulty {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-right: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.difficulty:hover {
+    background-color: #45a049;
+}
+
+#hangmanImage {
+    margin: 20px 0;
+    width: 200px;
+    height: auto;
+}
+
+#wordSpotlight {
+    font-size: 24px;
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+}
+
+#keyboard {
+    margin: 20px 0;
+}
+
+#keyboard button {
+    margin: 2px;
+    padding: 5px 10px;
+    width: 40px;
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+#keyboard button:disabled {
+    background-color: #e0e0e0;
+    color: #666;
+}
+
+#restartButton {
+    padding: 10px 20px;
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+}
+
+#restartButton:hover {
+    background-color: #007ba7;
+}
+
+#gameStatus {
+    color: #4CAF50; /* Default color for neutral messages */
+    font-size: 20px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+#gameStatus.win {
+    color: #4CAF50; /* Green color for winning */
+}
+
+#gameStatus.lose {
+    color: #F44336; /* Red color for losing */
+}

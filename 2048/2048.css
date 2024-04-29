@@ -1,0 +1,50 @@
+
+body {
+  background-color: #faf8ef;
+  display: flex;
+  justify-content: center;
+  font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+  padding: 10px;
+  min-height: 100vh;
+  align-items: center; 
+}
+
+.container {
+  width: 90vw; /* relative to viewport width */
+  max-width: 500px; /* maximum size */
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* creates a 4x4 grid layout */
+  gap: 10px;
+  background-color: #BBADA0;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.grid div {
+  background-color: #EEE4DA;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #776e65;
+  font-size: 5vw; /* responsive font size */
+  border-radius: 7px;
+}
+
+.score-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.score-box {
+  background-color: #BBADA0;
+  color: white;
+  padding: 10px;
+  border-radius: 7px;
+  text-align: center;
+  width: 48%; /* half the container minus gap */
+}
