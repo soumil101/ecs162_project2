@@ -1,4 +1,3 @@
-
 body {
   background-color: #faf8ef;
   display: flex;
@@ -6,7 +5,7 @@ body {
   font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
   padding: 10px;
   min-height: 100vh;
-  align-items: center; 
+  align-items: center;
 }
 
 .container {
@@ -29,8 +28,9 @@ body {
   justify-content: center;
   align-items: center;
   color: #776e65;
-  font-size: 5vw; /* responsive font size */
+  font-size: 5vw; /* responsive font size, larger on smaller screens */
   border-radius: 7px;
+  height: 120%; /* make each tile taller relative to its width */
 }
 
 .score-container {
@@ -38,13 +38,30 @@ body {
   justify-content: space-between;
   width: 100%;
   margin-bottom: 20px;
+  font-size: 1.5em; /* larger font size for better visibility */
 }
 
-.score-box {
-  background-color: #BBADA0;
-  color: white;
-  padding: 10px;
-  border-radius: 7px;
-  text-align: center;
-  width: 48%; /* half the container minus gap */
+.score-title {
+  font-weight: bold; /* makes the score title bolder */
+}
+
+#score {
+  font-size: 2.5em; /* larger score font */
+  color: #ff8c00; /* makes the score color stand out */
+  font-weight: bold; /* bold score number */
+}
+
+@media (min-width: 600px) {
+  .container {
+    max-width: 600px; /* larger maximum size for desktop */
+  }
+
+  .grid div {
+    font-size: 2.5vw; /* slightly larger font on desktop */
+    height: 150px; /* fixed height for desktop to ensure tiles are taller */
+  }
+
+  #score {
+    font-size: 3em; /* even larger score on desktop */
+  }
 }

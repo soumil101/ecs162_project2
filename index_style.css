@@ -1,74 +1,55 @@
-body, h1, p {
-  margin: 0;
-  padding: 0;
-}
-
 body {
   background-color: #faf8ef;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start; /* Changed from center to flex-start */
-  align-items: center;
   font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
   padding: 10px;
-  min-height: 100vh;
-  height: 100%; /* Ensure body takes up full height */
-}
-
-h1 {
-  font-size: 4vw; /* responsive font size for larger screens, smaller on mobile */
-  color: #776E65;
-  text-align: center;
-  margin-top: 20px; /* Added top margin for spacing */
-  margin-bottom: 20px;
-}
-
-.container {
-  width: 100%;
-  max-width: 960px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 10px;
-  justify-items: center;
-}
-
-.game-button {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-height: 100vh;
+}
+
+h1 {
+  color: #776E65;
+  font-size: 36px; /* increased for better visibility */
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-button {
+  margin: 10px;
   text-decoration: none;
-  border: none;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.3s;
-  width: 100%;
-  max-width: 100px;
-  aspect-ratio: 1;
-  margin-bottom: 10px; /* Add margin for spacing above the footer */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .game-button img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 1 / 1;
+  width: 100px;
+  height: 100px;
   border-radius: 10px;
   object-fit: cover;
 }
 
 .game-button p {
   color: #333;
-  font-size: 0.8rem;
+  font-size: 1rem;
   margin-top: 4px;
   text-align: center;
 }
 
 .game-button:hover {
   transform: scale(1.1);
-}
-
-.game-button:hover img {
-  transform: rotate(-5deg);
+  cursor: pointer;
 }
 
 .tooltip {
@@ -96,26 +77,36 @@ h1 {
 footer {
   width: 100%;
   text-align: center;
-  padding: 15px 0; /* Add padding to ensure visibility */
+  padding: 15px 0;
   color: #777;
 }
 
+.buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
 @media (max-width: 600px) {
+  .game-button img {
+    width: 80px;
+    height: 80px;
+  }
+
   h1 {
-      font-size: 5vw;
+    font-size: 4vw;
   }
 
   .container {
-      grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
   }
 
   .game-button {
-      max-width: 90px;
-      padding-top: 30px; /* Reduced padding */
-      padding-bottom: 30px;
+    max-width: 90px;
   }
 
   .game-button p {
-      font-size: 0.7rem;
+    font-size: 0.7rem;
   }
 }
