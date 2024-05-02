@@ -110,3 +110,8 @@ footer {
     font-size: 0.7rem;
   }
 }
+
+.game-button.focused {
+  box-shadow: 0 0 8px 4px rgba(68, 68, 68, 0.6); /* horizontal-offset vertical-offset blur-radius spread-radius color */
+}
+
