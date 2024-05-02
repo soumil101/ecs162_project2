@@ -3,23 +3,31 @@ body {
   display: flex;
   justify-content: center;
   font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
-  padding: 10px;
-  min-height: 100vh;
+  margin: 0;
+  height: 100vh;
   align-items: center;
+  padding-top: 0px;
+  margin-top: 0px;
 }
 
 .container {
-  width: 90vw; /* relative to viewport width */
-  max-width: 500px; /* maximum size */
+  width: 90vw;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* creates a 4x4 grid layout */
+  grid-template-columns: repeat(4, 1fr);
   gap: 10px;
   background-color: #BBADA0;
   padding: 10px;
   border-radius: 10px;
+  width: 100%; /* matches the width of the container */
+  aspect-ratio: 1; /* ensures the grid is always square */
 }
 
 .grid div {
@@ -28,9 +36,9 @@ body {
   justify-content: center;
   align-items: center;
   color: #776e65;
-  font-size: 5vw; /* responsive font size, larger on smaller screens */
+  font-size: 3vw;
   border-radius: 7px;
-  height: 120%; /* make each tile taller relative to its width */
+  aspect-ratio: 1; /* ensures each tile is square */
 }
 
 .score-container {
@@ -38,30 +46,15 @@ body {
   justify-content: space-between;
   width: 100%;
   margin-bottom: 20px;
-  font-size: 1.5em; /* larger font size for better visibility */
+  font-size: 1.5em;
 }
 
 .score-title {
-  font-weight: bold; /* makes the score title bolder */
+  font-weight: bold;
 }
 
 #score {
-  font-size: 2.5em; /* larger score font */
-  color: #ff8c00; /* makes the score color stand out */
-  font-weight: bold; /* bold score number */
-}
-
-@media (min-width: 600px) {
-  .container {
-    max-width: 600px; /* larger maximum size for desktop */
-  }
-
-  .grid div {
-    font-size: 2.5vw; /* slightly larger font on desktop */
-    height: 150px; /* fixed height for desktop to ensure tiles are taller */
-  }
-
-  #score {
-    font-size: 3em; /* even larger score on desktop */
-  }
+  font-size: 2.5em;
+  color: #ff8c00;
+  font-weight: bold;
 }

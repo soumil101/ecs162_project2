@@ -13,6 +13,25 @@ body {
     color: #776E65;
   }
 
+#backButton {
+  position: fixed;  /* Use fixed positioning to keep the button in view */
+  top: 20px;        /* Space from the top of the viewport */
+  left: 20px;       /* Space from the left of the viewport */
+  background-color: #f1f1f1;
+  color: #333;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+#backButton:hover {
+  background-color: #ddd;
+}
+
+
 .footer {
   text-align: center;
   width: 100%;
@@ -25,5 +44,6 @@ body {
   font-size: 0.8em; /* Smaller text size */
   border-top: 1px solid #ccc; /* Optional: adds a line at the top of the footer */
  }
+
 
  

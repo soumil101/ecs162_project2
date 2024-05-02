@@ -86,3 +86,17 @@ document.addEventListener('DOMContentLoaded', function() {
         initializeGame(difficultyButtons[0].getAttribute('data-difficulty')); // Restart at the last selected difficulty
     };
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Handle click on the back button
+    document.getElementById('backButton').addEventListener('click', function() {
+      window.history.back();
+    });
+  
+    // Handle Escape key press to navigate back
+    document.addEventListener('keydown', function(event) {
+      if (event.key === "Escape") { // Use event.code if "Escape" doesn't work
+        window.history.back();
+      }
+    });
+  });
