@@ -14,11 +14,30 @@ document.addEventListener('DOMContentLoaded', function() {
     const keyboard = document.getElementById('keyboard');
     const restartButton = document.getElementById('restartButton');
     const difficultyButtons = document.querySelectorAll('.difficulty');
+    let currentDifficultyIndex = 0;
 
-    difficultyButtons.forEach(button => {
+    function updateDifficultySelection() {
+        difficultyButtons[currentDifficultyIndex].focus();
+    }
+
+    difficultyButtons.forEach((button, index) => {
         button.addEventListener('click', function() {
+            currentDifficultyIndex = index;
             initializeGame(button.getAttribute('data-difficulty'));
         });
+    });
+
+    document.addEventListener('keydown', function(event) {
+        if (['ArrowLeft', 'ArrowRight'].includes(event.key)) {
+            if (event.key === 'ArrowLeft') {
+                currentDifficultyIndex = Math.max(currentDifficultyIndex - 1, 0);
+            } else if (event.key === 'ArrowRight') {
+                currentDifficultyIndex = Math.min(currentDifficultyIndex + 1, difficultyButtons.length - 1);
+            }
+            updateDifficultySelection();
+        } else if (event.keyCode >= 65 && event.keyCode <= 90) {
+            handleGuess(event.key.toUpperCase());
+        }
     });
 
     function initializeGame(difficulty) {
@@ -28,15 +47,15 @@ document.addEventListener('DOMContentLoaded', function() {
         missesDisplay.textContent = '';
         wordDisplay.textContent = '_ '.repeat(chosenWord.length).trim();
         hangmanImage.src = './images/0.jpg';
-        gameStatus.textContent = ''; // Clear previous status
+        gameStatus.textContent = '';
         restartButton.style.display = 'none';
         generateKeyboard();
         keyboard.style.display = 'block';
-        gameStatus.className = ''; // Reset status style
+        gameStatus.className = '';
     }
 
     function generateKeyboard() {
-        keyboard.innerHTML = ''; // Clear previous keyboard
+        keyboard.innerHTML = '';
         for (let i = 65; i <= 90; i++) {
             const button = document.createElement('button');
             button.textContent = String.fromCharCode(i);
@@ -49,6 +68,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function handleGuess(guess) {
+        const button = Array.from(keyboard.children).find(b => b.textContent === guess);
+        if (button) {
+            button.disabled = true; // Disable the button regardless of the guess's correctness
+        }
+    
         if (chosenWord.includes(guess.toLowerCase())) {
             correctGuesses.push(guess.toLowerCase());
             updateWordDisplay();
@@ -60,7 +84,9 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             incorrectGuesses.push(guess);
             missesDisplay.textContent = incorrectGuesses.join(', ');
-            updateHangmanImage();
+            if (incorrectGuesses.length < 10) {
+                updateHangmanImage();
+            }
             if (incorrectGuesses.length >= 10) {
                 gameStatus.textContent = 'Game Over! Better luck next time!';
                 gameStatus.className = 'lose';
@@ -68,6 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     }
+    
 
     function updateWordDisplay() {
         wordDisplay.textContent = chosenWord.split('').map(letter => correctGuesses.includes(letter) ? letter : '_').join(' ');
@@ -83,20 +110,20 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     restartButton.onclick = function() {
-        initializeGame(difficultyButtons[0].getAttribute('data-difficulty')); // Restart at the last selected difficulty
+        initializeGame(difficultyButtons[currentDifficultyIndex].getAttribute('data-difficulty'));
     };
+
+    updateDifficultySelection();
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Handle click on the back button
     document.getElementById('backButton').addEventListener('click', function() {
-      window.history.back();
-    });
-  
-    // Handle Escape key press to navigate back
-    document.addEventListener('keydown', function(event) {
-      if (event.key === "Escape") { // Use event.code if "Escape" doesn't work
         window.history.back();
-      }
     });
-  });
+
+    document.addEventListener('keydown', function(event) {
+        if (event.key === "Escape") {
+            window.history.back();
+        }
+    });
+});
