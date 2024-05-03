@@ -112,6 +112,8 @@ footer {
 }
 
 .game-button.focused {
+  outline: none;
   box-shadow: 0 0 8px 4px rgba(68, 68, 68, 0.6); /* horizontal-offset vertical-offset blur-radius spread-radius color */
+  border-radius: 10px;
 }
 
