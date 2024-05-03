@@ -11,10 +11,12 @@ function flipCoin() {
   img.alt = result.includes('heads') ? "Heads" : "Tails";
   img.hidden = false; 
 
+  // prints green heads or red tails
   message.textContent = result.includes('heads') ? "Heads!" : "Tails!";
   message.style.color = result.includes('heads') ? "#4CAF50" : "#FF5722"; 
 }
 
+// allows page to listen for enter key press to flip coin
 document.addEventListener('keydown', function(event) {
   if (event.key === "Enter") {
       flipCoin();
@@ -26,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.history.back();
   });
 
+  // escape key to go back
   document.addEventListener('keydown', function(event) {
     if (event.key === "Escape") { 
       window.history.back();

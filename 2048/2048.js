@@ -3,15 +3,18 @@
  * Copyright (c) [year of the original work] by Katarzyna Kubow
  * Licensed under the MIT License (MIT) (https://opensource.org/licenses/MIT)
  */
+// Wait until the DOM content is fully loaded to execute the script
 document.addEventListener('DOMContentLoaded', () =>  {
+  // Select the game grid and score display elements
   const gridDisplay = document.querySelector('.grid')
   const scoreDisplay = document.getElementById('score')
   const resultDisplay = document.getElementById('result')
+  // Initialize variables to store game squares, grid width, and score
   let squares = []
   const width = 4
   let score = 0
 
-
+  //create gameboard
   function createBoard() {
     for (let i=0; i < width*width; i++) {
       square = document.createElement('div')
@@ -24,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () =>  {
   }
   createBoard()
 
-
+// Initialize touch variables for mobile gestures
 let touchStartX = 0;
 let touchStartY = 0;
 let touchEndX = 0;
@@ -32,6 +35,7 @@ let touchEndY = 0;
 
 const gridElement = document.querySelector('.grid');
 
+// Functions to handle touch start, move, and end events
 function handleTouchStart(evt) {
     touchStartX = evt.touches[0].clientX;
     touchStartY = evt.touches[0].clientY;
@@ -46,6 +50,7 @@ function handleTouchEnd(evt) {
     const xDiff = touchEndX - touchStartX;
     const yDiff = touchEndY - touchStartY;
 
+    // Determine swipe direction and trigger corresponding movement
     if (Math.abs(xDiff) > Math.abs(yDiff)) { 
         if (xDiff > 0) { keyRight(); } 
         else { keyLeft(); } 
@@ -60,11 +65,12 @@ function handleTouchEnd(evt) {
     touchEndY = 0;
 }
 
+// Add touch event listeners to the grid
 gridElement.addEventListener('touchstart', handleTouchStart, false);
 gridElement.addEventListener('touchmove', handleTouchMove, false);
 gridElement.addEventListener('touchend', handleTouchEnd, false);
 
-
+// Generate a new tile in a random position
   function generate() {
     randomNumber = Math.floor(Math.random() * squares.length)
     if (squares[randomNumber].innerHTML == 0) {
@@ -72,7 +78,7 @@ gridElement.addEventListener('touchend', handleTouchEnd, false);
       checkForGameOver()
     } else generate()
   }
-
+// Define movement functions (right, left, up, down) and combining tiles
   function moveRight() {
     for (let i=0; i < 16; i++) {
       if (i % 4 === 0) {
@@ -224,7 +230,7 @@ gridElement.addEventListener('touchend', handleTouchEnd, false);
     moveDown()
     generate()
   }
-
+// Check for win or game over conditions
   function checkForWin() {
     for (let i=0; i < squares.length; i++) {
       if (squares[i].innerHTML == 2048) {
@@ -277,6 +283,7 @@ var myTimer = setInterval(addColours, 50)
 
 })
 
+// Event listeners for back button and escape key to navigate back
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('backButton').addEventListener('click', function() {
     window.history.back();

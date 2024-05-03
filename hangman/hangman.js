@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // allows different difficulty levels
     const words = {
         easy: ['apple', 'ball', 'cat', 'dog', 'fish'],
         medium: ['python', 'javascript', 'hangman', 'challenge', 'medium'],
@@ -27,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // can select difficulty with left and right arrow keys + enter
     document.addEventListener('keydown', function(event) {
         if (['ArrowLeft', 'ArrowRight'].includes(event.key)) {
             if (event.key === 'ArrowLeft') {
@@ -54,6 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
         gameStatus.className = '';
     }
 
+    // onscreen keyboard (mainly for mobile users)
     function generateKeyboard() {
         keyboard.innerHTML = '';
         for (let i = 65; i <= 90; i++) {
@@ -100,6 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
         wordDisplay.textContent = chosenWord.split('').map(letter => correctGuesses.includes(letter) ? letter : '_').join(' ');
     }
 
+    // increments through the hangman images 0-10
     function updateHangmanImage() {
         hangmanImage.src = `./images/${incorrectGuesses.length}.jpg`;
     }
@@ -121,6 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
         window.history.back();
     });
 
+    // escape key to go back
     document.addEventListener('keydown', function(event) {
         if (event.key === "Escape") {
             window.history.back();
