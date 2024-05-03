@@ -12,7 +12,7 @@ body {
 
 h1 {
   color: #776E65;
-  font-size: 36px; /* increased for better visibility */
+  font-size: 36px; 
   margin-top: 20px;
   margin-bottom: 20px;
 }
@@ -113,7 +113,30 @@ footer {
 
 .game-button.focused {
   outline: none;
-  box-shadow: 0 0 8px 4px rgba(68, 68, 68, 0.6); /* horizontal-offset vertical-offset blur-radius spread-radius color */
+  box-shadow: 0 0 8px 4px rgba(68, 68, 68, 0.6); 
   border-radius: 10px;
 }
 
+.game-button {
+  display: inline-block;
+  margin: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.game-button img {
+  width: 100px; 
+  height: 100px; 
+  border: 2px solid #000; 
+}
+
+.game-button:hover img {
+  border-color: #444; 
+}
+
+@media (max-width: 600px) {
+  .game-button img {
+    width: 80px; 
+    height: 80px;
+  }
+}

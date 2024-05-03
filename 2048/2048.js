@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () =>  {
   const width = 4
   let score = 0
 
-  //create the playing board
+
   function createBoard() {
     for (let i=0; i < width*width; i++) {
       square = document.createElement('div')
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () =>  {
   }
   createBoard()
 
-  // Listen to touch events
+
 let touchStartX = 0;
 let touchStartY = 0;
 let touchEndX = 0;
@@ -46,15 +46,14 @@ function handleTouchEnd(evt) {
     const xDiff = touchEndX - touchStartX;
     const yDiff = touchEndY - touchStartY;
 
-    if (Math.abs(xDiff) > Math.abs(yDiff)) { // Most significant
-        if (xDiff > 0) { keyRight(); } // swipe right
-        else { keyLeft(); } // swipe left
+    if (Math.abs(xDiff) > Math.abs(yDiff)) { 
+        if (xDiff > 0) { keyRight(); } 
+        else { keyLeft(); } 
     } else {
-        if (yDiff > 0) { keyDown(); } // swipe down
-        else { keyUp(); } // swipe up
+        if (yDiff > 0) { keyDown(); } 
+        else { keyUp(); } 
     }
     
-    // Reset values
     touchStartX = 0;
     touchStartY = 0;
     touchEndX = 0;
@@ -66,7 +65,6 @@ gridElement.addEventListener('touchmove', handleTouchMove, false);
 gridElement.addEventListener('touchend', handleTouchEnd, false);
 
 
-  //generate a new number
   function generate() {
     randomNumber = Math.floor(Math.random() * squares.length)
     if (squares[randomNumber].innerHTML == 0) {
@@ -186,7 +184,6 @@ gridElement.addEventListener('touchend', handleTouchEnd, false);
     checkForWin()
   }
 
-  //assign functions to keyCodes
   function control(e) {
     if(e.keyCode === 37) {
       keyLeft()
@@ -228,7 +225,6 @@ gridElement.addEventListener('touchend', handleTouchEnd, false);
     generate()
   }
 
-  //check for the number 2048 in the squares to win
   function checkForWin() {
     for (let i=0; i < squares.length; i++) {
       if (squares[i].innerHTML == 2048) {
@@ -239,7 +235,6 @@ gridElement.addEventListener('touchend', handleTouchEnd, false);
     }
   }
 
-  //check if there are no zeros on the board to lose
   function checkForGameOver() {
     let zeros = 0
     for (let i=0; i < squares.length; i++) {
@@ -254,7 +249,6 @@ gridElement.addEventListener('touchend', handleTouchEnd, false);
     }
   }
 
-  //clear timer
   function clear() {
     clearInterval(myTimer)
   }
@@ -284,14 +278,12 @@ var myTimer = setInterval(addColours, 50)
 })
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Handle click on the back button
   document.getElementById('backButton').addEventListener('click', function() {
     window.history.back();
   });
 
-  // Handle Escape key press to navigate back
   document.addEventListener('keydown', function(event) {
-    if (event.key === "Escape") { // Use event.code if "Escape" doesn't work
+    if (event.key === "Escape") { 
       window.history.back();
     }
   });

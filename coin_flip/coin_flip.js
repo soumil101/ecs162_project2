@@ -2,22 +2,19 @@ document.getElementById('flipButton').addEventListener('click', function() {
   flipCoin();
 });
 
-// Function to handle the coin flipping logic
 function flipCoin() {
-  let result = Math.random() < 0.5 ? 'heads.jpg' : 'tails.jpg'; // Assume you have 'heads.jpg' and 'tails.jpg'
+  let result = Math.random() < 0.5 ? 'heads.jpg' : 'tails.jpg'; // images from https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.shutterstock.com%2Fsearch%2Flincoln-head-penny&psig=AOvVaw0eNWcslwr8Oc6zFCoRvq_B&ust=1714857447875000&source=images&cd=vfe&opi=89978449&ved=0CBQQjhxqFwoTCNCzzPqz8oUDFQAAAAAdAAAAABAE
   let img = document.getElementById('coinImage');
   let message = document.getElementById('resultMessage');
   
   img.src = result;
   img.alt = result.includes('heads') ? "Heads" : "Tails";
-  img.hidden = false; // Show the image
+  img.hidden = false; 
 
-  // Update the result message with bright text
   message.textContent = result.includes('heads') ? "Heads!" : "Tails!";
-  message.style.color = result.includes('heads') ? "#4CAF50" : "#FF5722"; // Green for Heads, Red for Tails
+  message.style.color = result.includes('heads') ? "#4CAF50" : "#FF5722"; 
 }
 
-// Add event listener for the keyboard
 document.addEventListener('keydown', function(event) {
   if (event.key === "Enter") {
       flipCoin();
@@ -25,14 +22,12 @@ document.addEventListener('keydown', function(event) {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Handle click on the back button
   document.getElementById('backButton').addEventListener('click', function() {
     window.history.back();
   });
 
-  // Handle Escape key press to navigate back
   document.addEventListener('keydown', function(event) {
-    if (event.key === "Escape") { // Use event.code if "Escape" doesn't work
+    if (event.key === "Escape") { 
       window.history.back();
     }
   });

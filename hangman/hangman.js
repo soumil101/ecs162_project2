@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function handleGuess(guess) {
         const button = Array.from(keyboard.children).find(b => b.textContent === guess);
         if (button) {
-            button.disabled = true; // Disable the button regardless of the guess's correctness
+            button.disabled = true; 
         }
     
         if (chosenWord.includes(guess.toLowerCase())) {

@@ -75,16 +75,16 @@ h1 {
 }
 
 #gameStatus {
-    color: #4CAF50; /* Default color for neutral messages */
+    color: #4CAF50; 
     font-size: 20px;
     font-weight: bold;
     margin: 20px 0;
 }
 
 #gameStatus.win {
-    color: #4CAF50; /* Green color for winning */
+    color: #4CAF50; 
 }
 
 #gameStatus.lose {
-    color: #F44336; /* Red color for losing */
+    color: #F44336;
 }

@@ -26,8 +26,8 @@ body {
   background-color: #BBADA0;
   padding: 10px;
   border-radius: 10px;
-  width: 100%; /* matches the width of the container */
-  aspect-ratio: 1; /* ensures the grid is always square */
+  width: 100%; 
+  aspect-ratio: 1; 
 }
 
 .grid div {
@@ -38,7 +38,7 @@ body {
   color: #776e65;
   font-size: 3vw;
   border-radius: 7px;
-  aspect-ratio: 1; /* ensures each tile is square */
+  aspect-ratio: 1; 
 }
 
 .score-container {
